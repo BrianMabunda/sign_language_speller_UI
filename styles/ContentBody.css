@@ -1,0 +1,25 @@
+:root {
+            /* Core Tech-Noir Color Tokens */
+            --bg-primary: #020617;
+            --glass-surface: rgba(255, 255, 255, 0.03);
+            /* Enhanced Multi-layer Gradient for a more realistic glass feel */
+            --glass-gradient: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.12) 0%, 
+                rgba(255, 255, 255, 0.04) 40%, 
+                rgba(255, 255, 255, 0.01) 100%);
+            --glass-border-light: rgba(255, 255, 255, 0.15);
+            --glass-border-dark: rgba(0, 0, 0, 0.3);
+            --neural-indigo: #6366f1;
+            --subtitle-indigo: #818cf8;
+            --glow-cyan: #2563eb;
+        }
+.ContentBodyContainer {
+    height: 79vh;
+    /* padding: 20px; */
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    /* background-color: red; */
+
+}

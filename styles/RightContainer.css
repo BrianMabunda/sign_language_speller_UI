@@ -1,0 +1,169 @@
+:root {
+            /* Core Tech-Noir Color Tokens */
+            --bg-primary: #020617;
+            --glass-surface: rgba(255, 255, 255, 0.03);
+            /* Enhanced Multi-layer Gradient for a more realistic glass feel */
+            --glass-gradient: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.12) 0%, 
+                rgba(255, 255, 255, 0.04) 40%, 
+                rgba(255, 255, 255, 0.01) 100%);
+            --glass-border-light: rgba(255, 255, 255, 0.15);
+            --glass-border-dark: rgba(0, 0, 0, 0.3);
+            --neural-indigo: #6366f1;
+            --subtitle-indigo: #818cf8;
+            --glow-cyan: #2563eb;
+        }
+.RightContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 79vh;
+    padding: 20px;
+    width: 39vw;
+    /* text-align: center; */
+    /* background-color: red; */
+
+}
+.glass-panel {
+            
+            background: var(--glass-gradient);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            
+            /* Multi-step border for a "beveled glass" edge look */
+            border-top: 1px solid var(--glass-border-light);
+            border-left: 1px solid var(--glass-border-light);
+            border-bottom: 1px solid var(--glass-border-dark);
+            border-right: 1px solid var(--glass-border-dark);
+            
+            padding: 1.5rem;
+            border-radius: 1.25rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 
+                0 4px 15px rgba(0, 0, 0, 0.3),
+                inset 0 0 15px rgba(255, 255, 255, 0.02);
+            overflow: hidden;
+        }
+
+.glass-panel::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.glass-panel:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        0 12px 25px rgba(0, 0, 0, 0.4);
+}        
+
+.first-viewport {
+    width: 80%;
+    height: 30vh;
+    }
+.second-viewport {
+    width: 80%;
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    }
+.third-viewport {
+    width: 80%;
+    height: 10vh;
+    margin-top: 4vh;
+    margin-left: 1vw;
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-around;
+    align-items: center;
+
+    }
+.tech-label {
+    font-family: 'JetBrains Mono', monospace;
+    text-transform:capitalize;
+    letter-spacing: 0.15em;
+    font-size: 1.05rem;
+    color: var(--subtitle-indigo);
+    display: block;
+    margin-bottom: 1rem;
+    background-color: transparent;
+    text-align: left;
+    align-self: flex-start;
+    opacity: 0.8;
+        }
+
+
+.tech-label::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    background: var(--neural-indigo);
+    border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: 0 0 5px var(--neural-indigo);
+}
+.prdicted_letter{
+    color: #ffffff;
+    font-size: 7.5rem;
+    font-weight: bold;
+    background-color: transparent;
+}
+.spelled_word{
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 600;
+    background-color: transparent;
+    text-align: center;
+    /* margin-top: 1rem; */
+    padding: 0px;
+    margin: 0px;
+}
+
+.tech-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 5vh;
+            width: 14vw;
+            color: #94a3b8;
+            padding: 0.6rem;
+            border-radius: 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-right: 1em;
+        }
+.tech-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.tech-btn-primary {
+    background: var(--neural-indigo);
+    color: #fff;
+    border: none;
+}
+
+.tech-btn-primary:hover {
+    background: #818cf8;
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+}

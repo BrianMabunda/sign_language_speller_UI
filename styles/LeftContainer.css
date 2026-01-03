@@ -1,0 +1,107 @@
+:root {
+            --bg-primary: #020617;
+            --glass-surface: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --neural-indigo: #6366f1;
+            --subtitle-indigo: #818cf8;
+            --glow-cyan: #2563eb;
+        }
+.LeftContainer {
+    height: 79vh;
+    padding: 20px;
+    width: 60vw;
+    text-align: center;
+    /* background-color: red; */
+
+}
+.viewport {
+    width: 100%;
+    aspect-ratio: 21 / 9.5;
+    border-radius: 1.5rem;
+
+    background-color: var(--glass-surface);
+    backdrop-filter: blur(12px); /* Essential for the frost effect */
+    position: relative;
+    border: 2px solid var(--glass-border);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    min-height: 70vh;
+    min-width: 40vw;
+    
+    }
+.progress-track {
+            height: 1vh;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 2px;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+}
+
+.progress-filler {
+    height: 1vh;
+    width: 75%;
+    background: linear-gradient(to right, var(--neural-indigo), var(--glow-cyan));
+    box-shadow: 0 0 10px var(--neural-indigo);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+/* Animated Border Light Effect */
+.viewport::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0%,
+        transparent 40%,
+        var(--neural-indigo) 50%,
+        transparent 60%,
+        transparent 100%
+    );
+    animation: rotateBorder 4s linear infinite;
+    z-index: 0;
+}
+
+/* Inner Black Container to mask the rotating gradient */
+.viewport::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    /* background: #000; */
+    border-radius: 1.4rem;
+    z-index: 1;
+}
+
+@keyframes rotateBorder {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.tech-label {
+    font-family: 'JetBrains Mono', monospace;
+    text-transform:capitalize;
+    letter-spacing: 0.15em;
+    font-size: 1.05rem;
+    color: var(--subtitle-indigo);
+    display: block;
+    margin-bottom: 1rem;
+    background-color: transparent;
+    text-align: left;
+    align-self: flex-start;
+    opacity: 0.8;
+        }
+
+
+.tech-label::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    background: var(--neural-indigo);
+    border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: 0 0 5px var(--neural-indigo);
+}

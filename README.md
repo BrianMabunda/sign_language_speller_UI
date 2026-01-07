@@ -1,17 +1,71 @@
-# React + Vite
+Live Demo on Vercel | Backend API on Hugging Face
+This project is a real-time Sign Language Alphabet Classifier that bridges Computer Vision and Machine Learning. Using a React-based frontend and a FastAPI backend, it captures hand landmarks through a webcam and predicts American Sign Language (ASL) letters with high accuracy.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 How It Works
+Hand Tracking: The frontend uses Google MediaPipe to detect 21 3D hand landmarks in real-time.
 
-Currently, two official plugins are available:
+Data Transmission: These landmarks are normalized and sent as a JSON payload to a remote FastAPI server.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Inference: The backend server runs a Random Forest Classifier (trained on 20,000+ samples) to predict the letter.
 
-## React Compiler
+Feedback: The prediction is returned to the UI and displayed instantly to the user.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🛠️ Tech Stack
+Frontend (This Repo)
+Framework: React.js
 
-## Expanding the ESLint configuration
+Computer Vision: MediaPipe Hands
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-"# sign_language_speller_UI" 
+Deployment: Vercel
+
+Backend (View Backend Repo)
+Language: Python 3.10
+
+API: FastAPI
+
+Machine Learning: Scikit-Learn (Random Forest)
+
+Containerization: Docker
+
+Hosting: Hugging Face Spaces
+
+📦 Local Setup
+Clone the repository:
+
+Bash
+
+git clone https://github.com/your-username/alphabet-classifier-ui.git
+cd alphabet-classifier-ui
+Install dependencies:
+
+Bash
+
+npm install
+Configure Environment Variables: Create a .env file in the root directory:
+
+Code snippet
+
+REACT_APP_API_URL=https://brianmabunda00-alphabet-classifier.hf.space/predict
+Run the application:
+
+Bash
+
+npm start
+🧠 Model Information
+The model was trained by extracting hand landmarks from a diverse dataset of ASL signs. By using landmarks rather than raw pixel data, the system is:
+
+Privacy-Friendly: We don't store or process actual video/images on the server.
+
+Lighting Independent: The model focuses on the geometry of the hand, not the background.
+
+Fast: The JSON payload is tiny (~2KB), allowing for near-instant predictions even on mobile data.
+
+🚧 Challenges Faced
+LFS Integration: Managing large .p model files using Git LFS for seamless deployment.
+
+Cross-Origin Requests: Configuring CORS on the FastAPI backend to allow the Vercel frontend to communicate securely.
+
+Cold Starts: Implementing UI logic to handle the initial wake-up time of the Hugging Face Free Tier.
+
+🤝 Contact
+Developed by Brian Mabunda LinkedIn Profile | Portfolio
